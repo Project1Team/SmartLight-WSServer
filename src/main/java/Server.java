@@ -53,7 +53,7 @@ public class Server extends WebSocketServer {
 
     public static void main( String[] args ) throws InterruptedException , IOException {
         WebSocketImpl.DEBUG = true;
-        int port = 8887;
+        int port = 8888;
         try {
             port = Integer.parseInt( args[ 0 ] );
         } catch ( Exception ex ) {
@@ -70,6 +70,7 @@ public class Server extends WebSocketServer {
             if( in.equals( "exit" ) ) {
                 s.stop(1000);
                 break;
+
             }
         }
     }
