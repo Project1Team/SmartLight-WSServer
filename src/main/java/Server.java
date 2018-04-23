@@ -27,7 +27,7 @@ public class Server extends WebSocketServer {
 
     @Override
     public void onClose( WebSocket conn, int code, String reason, boolean remote ) {
-        broadcast( conn + " has left the room!" );
+        broadcast( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " has left the room!" );
         //System.out.println( conn + " has left the room!" );
     }
 
@@ -43,12 +43,7 @@ public class Server extends WebSocketServer {
     }
 
     public static void main( String[] args ) throws InterruptedException , IOException {
-<<<<<<< HEAD
         int port = 8887;
-=======
-        WebSocketImpl.DEBUG = true;
-        int port = 8888;
->>>>>>> b6e0779d174e9905d97fe4cf6107749fa2b91090
         try {
             port = Integer.parseInt( args[ 0 ] );
         } catch ( Exception ex ) {
