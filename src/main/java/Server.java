@@ -39,7 +39,7 @@ public class Server extends WebSocketServer {
     public static List<DeviceSocket> deviceSocketList = new ArrayList<DeviceSocket>();
 
     // port of server
-    private static final int PORT_SERVER = 8887;
+    private static final int PORT_SERVER = 8888;
 
     public Server(int port ) throws UnknownHostException {
         super( new InetSocketAddress( port ) );
@@ -68,6 +68,9 @@ public class Server extends WebSocketServer {
         DBCollection collection = database.getCollection(COLLECTION_NAME);
 
         mongoDBUser = new MongoDBUser(collection);
+//
+//        DBObject dbUser = mongoDBUser.getUserDBObject("thao", "111111");
+//        System.out.println(dbUser.toString());
     }
 
     @Override
@@ -131,7 +134,7 @@ public class Server extends WebSocketServer {
             case "changeColor":
                 DeviceSocket deviceSocket = Utils.getSocketDeviceByMacAddr(requests[1]);
                 if(deviceSocket != null){
-                    deviceSocket.getConn().send("changColor/"+requests[1]);
+                    deviceSocket.getConn().send("changColor/"+requests[2]);
                     conn.send("changeColor/Sent Color");
                 }
                 else
