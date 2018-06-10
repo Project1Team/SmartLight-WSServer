@@ -169,8 +169,17 @@ public class Server extends WebSocketServer {
                 if(deviceSocket_off != null){
                     deviceSocket_off.getConn().send("changeColor/000000000000000");
                     conn.send("messageRes/Turned off light");
-                    //update color to DB
-                    mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], "000000000000000");
+                }
+                else
+                    conn.send("messageRes/Not found Device");
+                break;
+
+            case "turnOn":
+                DeviceSocket deviceSocket_on = Utils.getSocketDeviceByMacAddr(requests[1]);
+                if(deviceSocket_on != null){
+                    String colorCurrent = mongoDBUser.getColorByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
+                    deviceSocket_on.getConn().send("turnOn/" + colorCurrent);
+                    conn.send("messageRes/Turned on light");
                 }
                 else
                     conn.send("messageRes/Not found Device");

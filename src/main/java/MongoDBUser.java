@@ -38,6 +38,19 @@ public class MongoDBUser {
         return cursor.next();
     }
 
+    public String getColorByMacAddress(ObjectId idUser, String macAddr){
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
+        for(Object object_room : basicDBList_room){
+            BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+            for(Object object_device: basicDBList_device){
+                if(((DBObject) object_device).get("macAddr").equals(macAddr))
+                    return (String) ((DBObject) object_device).get("color");
+            }
+        }
+        return null;
+    }
+
     public boolean updateColorDb(ObjectId idUser, String macAddress, String colorUpdate){
         int position_room = 0;
         int position_device = 0;
