@@ -144,12 +144,19 @@ public class Server extends WebSocketServer {
                 DeviceSocket deviceSocket = Utils.getSocketDeviceByMacAddr(requests[1]);
                 if(deviceSocket != null){
                     deviceSocket.getConn().send("changColor/"+requests[2]);
-                    conn.send("changeColor/Sent Color");
+                    conn.send("messageRes/Sent Color");
                     //update color to DB
                     mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], requests[2]);
                 }
                 else
-                    conn.send("changeColor/Not found Device");
+                    conn.send("messageRes/Not found Device");
+                break;
+
+            case "changePassword":
+                if (mongoDBUser.changePassword(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
+                    conn.send("messageRes/changed password successful");
+                else
+                    conn.send("messageRes/changed password failed");
                 break;
 
             case "updateProfile":

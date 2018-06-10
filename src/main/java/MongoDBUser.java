@@ -73,4 +73,21 @@ public class MongoDBUser {
         return false;
     }
 
+    public boolean changePassword(ObjectId idUser, String passOld, String newPass){
+        if(getUserDBObjectById(idUser).get("password").equals(passOld)){
+            BasicDBObject queryUser = new BasicDBObject();
+            BasicDBObject passUpdate = new BasicDBObject();
+            BasicDBObject command = new BasicDBObject();
+
+            queryUser.put("_id", idUser);
+            passUpdate.put("password", newPass);
+
+            command.put("$set",passUpdate);
+            collection.update(queryUser, command);
+
+            return true;
+        }
+        return false;
+    }
+
 }
