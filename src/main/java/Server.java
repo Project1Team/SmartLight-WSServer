@@ -126,6 +126,15 @@ public class Server extends WebSocketServer {
                     System.out.print("Fail !");
                 break;
 
+            case "logout":
+                for(UserSocket userSocket: userSocketList){
+                    if(userSocket.getConn().equals(conn)){
+                        userSocketList.remove(userSocket);
+                        return;
+                    }
+                }
+                break;
+
             case "deviceConnect":
                 DeviceSocket DeviceSocket = new DeviceSocket(conn, requests[1]);
                 deviceSocketList.add(DeviceSocket);
@@ -136,12 +145,14 @@ public class Server extends WebSocketServer {
                 if(deviceSocket != null){
                     deviceSocket.getConn().send("changColor/"+requests[2]);
                     conn.send("changeColor/Sent Color");
+                    //update color to DB
+                    mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], requests[2]);
                 }
                 else
                     conn.send("changeColor/Not found Device");
                 break;
 
-            case "UpdateProfile":
+            case "updateProfile":
                 break;
 
             case "getColor":
