@@ -159,6 +159,20 @@ public class Server extends WebSocketServer {
                     conn.send("messageRes/changed password failed");
                 break;
 
+            case "renameRoom":
+                if (mongoDBUser.renameRoom(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
+                    conn.send("messageRes/rename room successful");
+                else
+                    conn.send("messageRes/rename room failed");
+                break;
+
+            case "renameDevice":
+                if (mongoDBUser.renameDevice(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
+                    conn.send("messageRes/rename device successful");
+                else
+                    conn.send("messageRes/rename device failed");
+                break;
+
             case "updateProfile":
                 break;
 

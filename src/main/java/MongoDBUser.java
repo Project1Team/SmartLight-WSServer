@@ -90,4 +90,66 @@ public class MongoDBUser {
         return false;
     }
 
+    public boolean renameRoom(ObjectId idUser, String oldName, String newName){
+        int position_room = 0;
+        boolean alert_found = false;
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject nameUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
+
+        for(Object object_room : basicDBList_room){
+            if (((DBObject)object_room).get("name").equals(oldName)){
+                alert_found = true;
+                break;
+            }
+            position_room ++;
+        }
+        if (alert_found) {
+            queryUser.put("_id", idUser);
+            nameUpdate.put("room." + position_room + ".name", newName);
+            command.put("$set", nameUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean renameDevice(ObjectId idUser, String macAddress, String newName){
+        int position_room = 0;
+        int position_device = 0;
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject nameUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
+
+        findPostionOfRoomDevice:{
+            for(Object object_room : basicDBList_room){
+                BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+                for(Object object_device: basicDBList_device){
+                    if(((DBObject) object_device).get("macAddr").equals(macAddress)) {
+                        alert_found = true;
+                        break findPostionOfRoomDevice;
+                    }
+                    position_device++;
+                }
+                position_room ++;
+            }
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            nameUpdate.put("room." + position_room + ".device." + position_device + ".name", newName);
+            command.put("$set", nameUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
 }
