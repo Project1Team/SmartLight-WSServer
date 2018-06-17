@@ -38,6 +38,18 @@ public class MongoDBUser {
         return cursor.next();
     }
 
+    public String getBrightnessByMacAddress(ObjectId idUser, String macAddr){
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
+        for(Object object_room : basicDBList_room){
+            BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+            for(Object object_device: basicDBList_device){
+                if(((DBObject) object_device).get("macAddr").equals(macAddr))
+                    return (String) ((DBObject) object_device).get("brightness");
+            }
+        }
+        return null;
+    }
     public String getColorByMacAddress(ObjectId idUser, String macAddr){
         DBObject dbObject = getUserDBObjectById(idUser);
         BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
@@ -79,6 +91,40 @@ public class MongoDBUser {
         if (alert_found){
             queryUser.put("_id",idUser);
             dataUpdate.put("room." + position_room + ".device." + position_device + ".color", colorUpdate);
+            command.put("$set", dataUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateBrightnessDb(ObjectId idUser, String macAddress, String brightnessUpdate){
+        int position_room = 0;
+        int position_device = 0;
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject dataUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
+
+        findPostionOfRoomDevice:{
+            for(Object object_room : basicDBList_room){
+                BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+                for(Object object_device: basicDBList_device){
+                    if(((DBObject) object_device).get("macAddr").equals(macAddress)) {
+                        alert_found = true;
+                        break findPostionOfRoomDevice;
+                    }
+                    position_device++;
+                }
+                position_room ++;
+            }
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            dataUpdate.put("room." + position_room + ".device." + position_device + ".brightness", brightnessUpdate);
             command.put("$set", dataUpdate);
             collection.update(queryUser, command);
             return true;
