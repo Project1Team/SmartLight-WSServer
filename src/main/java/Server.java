@@ -138,6 +138,10 @@ public class Server extends WebSocketServer {
             case "deviceConnect":
                 DeviceSocket deviceSocket_conn = new DeviceSocket(conn, requests[1]);
                 deviceSocketList.add(deviceSocket_conn);
+                if (mongoDBUser.getCurrentStatusByMacAddr(requests[1]).equals("on"))
+                    conn.send("changeColor/" + mongoDBUser.getCurrentColorByMacAddress(requests[1]) + "255" + mongoDBUser.getCurrentBrightnessByMacAddr(requests[1]));
+                else
+                    conn.send("changeColor/000000000000000");
                 break;
 
             case "changeColor":

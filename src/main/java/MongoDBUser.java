@@ -38,6 +38,51 @@ public class MongoDBUser {
         return cursor.next();
     }
 
+    public String getCurrentColorByMacAddress(String macAddr){
+        DBCursor cursor_user = collection.find();
+        while (cursor_user.hasNext()){
+            DBObject dbobject_user = cursor_user.next();
+            BasicDBList basicDBList_room = (BasicDBList) dbobject_user.get("room");
+            for(Object object_room : basicDBList_room){
+                BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+                for(Object object_device: basicDBList_device){
+                    if(((DBObject) object_device).get("macAddr").equals(macAddr))
+                        return (String) ((DBObject) object_device).get("color");
+                }
+            }
+        }
+        return null;
+    }
+    public String getCurrentBrightnessByMacAddr(String macAddr){
+        DBCursor cursor_user = collection.find();
+        while (cursor_user.hasNext()){
+            DBObject dbobject_user = cursor_user.next();
+            BasicDBList basicDBList_room = (BasicDBList) dbobject_user.get("room");
+            for(Object object_room : basicDBList_room){
+                BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+                for(Object object_device: basicDBList_device){
+                    if(((DBObject) object_device).get("macAddr").equals(macAddr))
+                        return (String) ((DBObject) object_device).get("brightness");
+                }
+            }
+        }
+        return null;
+    }
+    public String getCurrentStatusByMacAddr(String macAddr){
+        DBCursor cursor_user = collection.find();
+        while (cursor_user.hasNext()){
+            DBObject dbobject_user = cursor_user.next();
+            BasicDBList basicDBList_room = (BasicDBList) dbobject_user.get("room");
+            for(Object object_room : basicDBList_room){
+                BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_room).get("device");
+                for(Object object_device: basicDBList_device){
+                    if(((DBObject) object_device).get("macAddr").equals(macAddr))
+                        return (String) ((DBObject) object_device).get("status");
+                }
+            }
+        }
+        return null;
+    }
     public String getBrightnessByMacAddress(ObjectId idUser, String macAddr){
         DBObject dbObject = getUserDBObjectById(idUser);
         BasicDBList basicDBList_room = (BasicDBList) dbObject.get("room");
