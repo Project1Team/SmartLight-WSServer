@@ -212,6 +212,130 @@ public class MongoDBUser {
         return false;
     }
 
+    public boolean updateStatusSwitch(ObjectId idUser, String macAddress, String value){
+        int position_home = 0;
+        int position_switch = 0;
+        int position_device = 0;
+        String index_switch = "0";
+        String status = "off";
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject dataUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        switch (value){
+            case "010":
+                index_switch = "1";
+                position_switch = 0;
+                status = "off";
+                break;
+            case "011":
+                index_switch = "1";
+                position_switch = 0;
+                status = "on";
+                break;
+            case "020":
+                index_switch = "1";
+                position_switch = 1;
+                status = "off";
+                break;
+            case "021":
+                index_switch = "1";
+                position_switch = 1;
+                status = "on";
+                break;
+            case "030":
+                index_switch = "1";
+                position_switch = 2;
+                status = "off";
+                break;
+            case "031":
+                index_switch = "1";
+                position_switch = 2;
+                status = "on";
+                break;
+            case "040":
+                index_switch = "1";
+                position_switch = 3;
+                status = "off";
+                break;
+            case "041":
+                index_switch = "1";
+                position_switch = 3;
+                status = "on";
+                break;
+            case "110":
+                index_switch = "2";
+                position_switch = 0;
+                status = "off";
+                break;
+            case "111":
+                index_switch = "2";
+                position_switch = 0;
+                status = "on";
+                break;
+            case "120":
+                index_switch = "2";
+                position_switch = 1;
+                status = "off";
+                break;
+            case "121":
+                index_switch = "2";
+                position_switch = 1;
+                status = "on";
+                break;
+            case "130":
+                index_switch = "2";
+                position_switch = 2;
+                status = "off";
+                break;
+            case "131":
+                index_switch = "2";
+                position_switch = 2;
+                status = "on";
+                break;
+            case "140":
+                index_switch = "2";
+                position_switch = 3;
+                status = "off";
+                break;
+            case "141":
+                index_switch = "2";
+                position_switch = 3;
+                status = "on";
+                break;
+        }
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
+
+        findPostionOfHomeDevice:{
+            for(Object object_home : basicDBList_home){
+                if(((DBObject) object_home).get("macAddr").equals(macAddress)) {
+                    BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
+                    for(Object object_switchBoard : basicDBList_device)
+                    {
+                        if(((DBObject) object_switchBoard).get("index").equals(index_switch))
+                        {
+                            alert_found = true;
+                            break findPostionOfHomeDevice;
+                        }
+                        position_device ++;
+                    }
+                }
+                position_home++;
+            }
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".switch" + position_switch + ".status", status);
+            command.put("$set", dataUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
     public boolean changePassword(ObjectId idUser, String passOld, String newPass){
         if(getUserDBObjectById(idUser).get("password").equals(passOld)){
             BasicDBObject queryUser = new BasicDBObject();

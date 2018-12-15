@@ -147,8 +147,12 @@ public class Server extends WebSocketServer {
             case "switch":
                 DeviceSocket deviceSocket_changeStatus = Utils.getSocketDeviceByMacAddr(requests[1]);
                 if(deviceSocket_changeStatus != null){
-                    //String brightness = mongoDBUser.getBrightnessByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
-                    deviceSocket_changeStatus.getConn().send("switch/"+requests[2]);
+                    if(mongoDBUser.updateStatusSwitch(Utils.getObjectIdBySocket(conn), requests[1], requests[2])){
+                        deviceSocket_changeStatus.getConn().send("switch/"+requests[2]);
+                    }
+                    else{
+                        conn.send("messageRes/Can't control switch");
+                    }
                     //update color to DB
 //                    if(mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
 //                        conn.send("updateColor/" + requests[1] + "/" + requests[2]);
