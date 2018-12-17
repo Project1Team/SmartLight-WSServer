@@ -69,8 +69,8 @@ public class Server extends WebSocketServer {
 
         mongoDBUser = new MongoDBUser(collection);
 
-        DBObject dbUser = mongoDBUser.getUserDBObject("thao", "111111");
-        System.out.println(dbUser.toString());
+        //DBObject dbUser = mongoDBUser.getUserDBObject("thao", "111111");
+        //System.out.println(dbUser.toString());
     }
 
     @Override

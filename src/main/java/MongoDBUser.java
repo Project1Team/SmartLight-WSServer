@@ -310,25 +310,27 @@ public class MongoDBUser {
         BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
 
         findPostionOfHomeDevice:{
-            for(Object object_home : basicDBList_home){
+            for(int i = 0; i < basicDBList_home.size(); i++){
+                Object object_home = basicDBList_home.get(i);
                 if(((DBObject) object_home).get("macAddr").equals(macAddress)) {
                     BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
-                    for(Object object_switchBoard : basicDBList_device)
-                    {
-                        if(((DBObject) object_switchBoard).get("index").equals(index_switch))
-                        {
-                            alert_found = true;
-                            break findPostionOfHomeDevice;
+                    for(int j = 0; j < basicDBList_device.size(); j++){
+                        Object object_switchBoard = basicDBList_device.get(j);
+                        if(((DBObject) object_switchBoard).get("type").equals("switch")){
+                            if(((DBObject) object_switchBoard).get("index").equals(index_switch)){
+                                alert_found = true;
+                                position_device = j;
+                                break findPostionOfHomeDevice;
+                            }
                         }
-                        position_device ++;
                     }
                 }
-                position_home++;
             }
+            position_home++;
         }
         if (alert_found){
             queryUser.put("_id",idUser);
-            dataUpdate.put("home." + position_home + ".device." + position_device + ".switch" + position_switch + ".status", status);
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".switch." + position_switch + ".status", status);
             command.put("$set", dataUpdate);
             collection.update(queryUser, command);
             return true;
