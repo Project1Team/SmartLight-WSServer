@@ -21,4 +21,13 @@ public class Utils {
         return null;
     }
 
+    public static String getMacAddrBySocket(WebSocket conn){
+        for(DeviceSocket deviceSocket : Server.deviceSocketList){
+            if(deviceSocket.getConn().equals(conn)){
+                return deviceSocket.getMacAdrr();
+            }
+        }
+        return null;
+    }
+
 }

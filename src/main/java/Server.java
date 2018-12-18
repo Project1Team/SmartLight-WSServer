@@ -161,61 +161,79 @@ public class Server extends WebSocketServer {
                     conn.send("messageRes/Device not found");
                 break;
 
-            case "changeBrightness":
-                DeviceSocket deviceSocket_changeBr = Utils.getSocketDeviceByMacAddr(requests[1]);
-                if(deviceSocket_changeBr != null){
-                    String color = mongoDBUser.getColorByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
-                    deviceSocket_changeBr.getConn().send("changeColor/" + color + "255" + requests[2]);
-                    //update color to DB
-                    if (mongoDBUser.updateBrightnessDb(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
-                        conn.send("updateBrightness/" + requests[1] + "/" + requests[2]);
+            case "temperature":
+                for(UserSocket userSocket : userSocketList){
+                    mongoDBUser.updateTemperate(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
                 }
-                else
-                    conn.send("messageRes/Device not found");
                 break;
 
-            case "reset":
-                DeviceSocket deviceSocket_reset = Utils.getSocketDeviceByMacAddr(requests[1]);
-                if(deviceSocket_reset != null){
-                    deviceSocket_reset.getConn().send("changeColor/255255255255255");
-                    conn.send("messageRes/Light has been reset");
-                    //update color to DB
-                    mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], "255255255255255");
+            case "fire":
+                for(UserSocket userSocket : userSocketList){
+                    mongoDBUser.updateFire(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
                 }
-                else
-                    conn.send("messageRes/Device not found");
                 break;
 
-            case "turnOff":
-                DeviceSocket deviceSocket_off = Utils.getSocketDeviceByMacAddr(requests[1]);
-                if(deviceSocket_off != null){
-                    deviceSocket_off.getConn().send("changeColor/000000000000000");
-                    if(mongoDBUser.updateStatusDevice(Utils.getObjectIdBySocket(conn), requests[1], "off")){
-                        conn.send("updateStatus/" + requests[1] + "/off");
-                        conn.send("messageRes/Light turned off");
-                    }
+            case "gas":
+                for(UserSocket userSocket : userSocketList){
+                    mongoDBUser.updateGas(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
                 }
-                else
-                    conn.send("messageRes/Device not found");
                 break;
 
-            case "turnOn":
-                DeviceSocket deviceSocket_on = Utils.getSocketDeviceByMacAddr(requests[1]);
-                if(deviceSocket_on != null){
-                    String currentColor = mongoDBUser.getColorByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
-                    String currentBrightness = mongoDBUser.getBrightnessByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
-                    //deviceSocket_on.getConn().send("turnOn/" + currentColor);
-                    deviceSocket_on.getConn().send("changeColor/255255255999255");
-                    deviceSocket_on.getConn().send("changeColor/" + currentColor + "255" + currentBrightness);
-                    //update status light of db
-                    if(mongoDBUser.updateStatusDevice(Utils.getObjectIdBySocket(conn), requests[1], "on")){
-                        conn.send("updateStatus/" + requests[1] + "/on");
-                        conn.send("messageRes/Light turned on");
-                    }
-                }
-                else
-                    conn.send("messageRes/Device not found");
-                break;
+//            case "changeBrightness":
+//                DeviceSocket deviceSocket_changeBr = Utils.getSocketDeviceByMacAddr(requests[1]);
+//                if(deviceSocket_changeBr != null){
+//                    String color = mongoDBUser.getColorByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
+//                    deviceSocket_changeBr.getConn().send("changeColor/" + color + "255" + requests[2]);
+//                    //update color to DB
+//                    if (mongoDBUser.updateBrightnessDb(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
+//                        conn.send("updateBrightness/" + requests[1] + "/" + requests[2]);
+//                }
+//                else
+//                    conn.send("messageRes/Device not found");
+//                break;
+
+//            case "reset":
+//                DeviceSocket deviceSocket_reset = Utils.getSocketDeviceByMacAddr(requests[1]);
+//                if(deviceSocket_reset != null){
+//                    deviceSocket_reset.getConn().send("changeColor/255255255255255");
+//                    conn.send("messageRes/Light has been reset");
+//                    //update color to DB
+//                    mongoDBUser.updateColorDb(Utils.getObjectIdBySocket(conn), requests[1], "255255255255255");
+//                }
+//                else
+//                    conn.send("messageRes/Device not found");
+//                break;
+//
+//            case "turnOff":
+//                DeviceSocket deviceSocket_off = Utils.getSocketDeviceByMacAddr(requests[1]);
+//                if(deviceSocket_off != null){
+//                    deviceSocket_off.getConn().send("changeColor/000000000000000");
+//                    if(mongoDBUser.updateStatusDevice(Utils.getObjectIdBySocket(conn), requests[1], "off")){
+//                        conn.send("updateStatus/" + requests[1] + "/off");
+//                        conn.send("messageRes/Light turned off");
+//                    }
+//                }
+//                else
+//                    conn.send("messageRes/Device not found");
+//                break;
+
+//            case "turnOn":
+//                DeviceSocket deviceSocket_on = Utils.getSocketDeviceByMacAddr(requests[1]);
+//                if(deviceSocket_on != null){
+//                    String currentColor = mongoDBUser.getColorByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
+//                    String currentBrightness = mongoDBUser.getBrightnessByMacAddress(Utils.getObjectIdBySocket(conn), requests[1]);
+//                    //deviceSocket_on.getConn().send("turnOn/" + currentColor);
+//                    deviceSocket_on.getConn().send("changeColor/255255255999255");
+//                    deviceSocket_on.getConn().send("changeColor/" + currentColor + "255" + currentBrightness);
+//                    //update status light of db
+//                    if(mongoDBUser.updateStatusDevice(Utils.getObjectIdBySocket(conn), requests[1], "on")){
+//                        conn.send("updateStatus/" + requests[1] + "/on");
+//                        conn.send("messageRes/Light turned on");
+//                    }
+//                }
+//                else
+//                    conn.send("messageRes/Device not found");
+//                break;
 
             case "changePassword":
                 if (mongoDBUser.changePassword(Utils.getObjectIdBySocket(conn), requests[1], requests[2]))
@@ -240,8 +258,6 @@ public class Server extends WebSocketServer {
 
             case "updateProfile":
                 break;
-
-            case "getColor":
         }
     }
     @Override

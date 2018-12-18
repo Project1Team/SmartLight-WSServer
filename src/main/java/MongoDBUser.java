@@ -212,6 +212,123 @@ public class MongoDBUser {
         return false;
     }
 
+    public boolean updateTemperate(ObjectId idUser,  String macAddr, String temperate){
+        int position_home = 0;
+        int position_device = 0;
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject dataUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
+
+        findPostionOfHomeDevice:{
+            for(int i = 0; i < basicDBList_home.size(); i++){
+                Object object_home = basicDBList_home.get(i);
+                if(((DBObject) object_home).get("macAddr").equals(macAddr)) {
+                    BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
+                    for(int j = 0; j < basicDBList_device.size(); j++){
+                        Object object_teamperature = basicDBList_device.get(j);
+                        if(((DBObject) object_teamperature).get("type").equals("temperature")){
+                            alert_found = true;
+                            position_device = j;
+                            break findPostionOfHomeDevice;
+                        }
+                    }
+                }
+            }
+            position_home++;
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".value", temperate);
+            command.put("$set", dataUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateFire(ObjectId idUser,  String macAddr, String fire){
+        int position_home = 0;
+        int position_device = 0;
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject dataUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
+
+        findPostionOfHomeDevice:{
+            for(int i = 0; i < basicDBList_home.size(); i++){
+                Object object_home = basicDBList_home.get(i);
+                if(((DBObject) object_home).get("macAddr").equals(macAddr)) {
+                    BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
+                    for(int j = 0; j < basicDBList_device.size(); j++){
+                        Object object_teamperature = basicDBList_device.get(j);
+                        if(((DBObject) object_teamperature).get("type").equals("fire")){
+                            alert_found = true;
+                            position_device = j;
+                            break findPostionOfHomeDevice;
+                        }
+                    }
+                }
+            }
+            position_home++;
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", fire);
+            command.put("$set", dataUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateGas(ObjectId idUser,  String macAddr, String gas){
+        int position_home = 0;
+        int position_device = 0;
+        boolean alert_found = false;
+
+        BasicDBObject queryUser = new BasicDBObject();
+        BasicDBObject dataUpdate = new BasicDBObject();
+        BasicDBObject command = new BasicDBObject();
+
+        DBObject dbObject = getUserDBObjectById(idUser);
+        BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
+
+        findPostionOfHomeDevice:{
+            for(int i = 0; i < basicDBList_home.size(); i++){
+                Object object_home = basicDBList_home.get(i);
+                if(((DBObject) object_home).get("macAddr").equals(macAddr)) {
+                    BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
+                    for(int j = 0; j < basicDBList_device.size(); j++){
+                        Object object_teamperature = basicDBList_device.get(j);
+                        if(((DBObject) object_teamperature).get("type").equals("gas")){
+                            alert_found = true;
+                            position_device = j;
+                            break findPostionOfHomeDevice;
+                        }
+                    }
+                }
+            }
+            position_home++;
+        }
+        if (alert_found){
+            queryUser.put("_id",idUser);
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", gas);
+            command.put("$set", dataUpdate);
+            collection.update(queryUser, command);
+            return true;
+        }
+        return false;
+    }
+
     public boolean updateStatusSwitch(ObjectId idUser, String macAddress, String value){
         int position_home = 0;
         int position_switch = 0;
