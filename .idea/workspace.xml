@@ -2,79 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca7d8683-b172-4246-829a-58109a82652e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/AbstractWebSocket$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/AbstractWebSocket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/AbstractWrappedByteChannel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/SSLSocketChannel$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/SSLSocketChannel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/SSLSocketChannel2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/SocketChannelIOHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocket$READYSTATE.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocket$Role.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocketAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocketFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocketImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocketListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WebSocketServerFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/WrappedByteChannel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/client/AbstractClientProxyChannel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/client/WebSocketClient$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/client/WebSocketClient$WebsocketWriteThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/client/WebSocketClient.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/drafts/Draft$CloseHandshakeType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/drafts/Draft$HandshakeState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/drafts/Draft.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/drafts/Draft_6455.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/IncompleteException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/IncompleteHandshakeException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/InvalidDataException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/InvalidFrameException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/InvalidHandshakeException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/LimitExedeedException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/NotSendableException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/exceptions/WebsocketNotConnectedException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/extensions/CompressionExtension.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/extensions/DefaultExtension.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/extensions/IExtension.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/BinaryFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/CloseFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/ContinuousFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/ControlFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/DataFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/Framedata$Opcode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/Framedata.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/FramedataImpl1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/FramedataImpl1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/PingFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/PongFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/framing/TextFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/ClientHandshake.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/ClientHandshakeBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/HandshakeBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/HandshakeImpl1Client.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/HandshakeImpl1Server.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/Handshakedata.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/HandshakedataImpl1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/ServerHandshake.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/handshake/ServerHandshakeBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/protocols/IProtocol.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/protocols/Protocol.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/CustomSSLWebSocketServerFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/DefaultSSLWebSocketServerFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/DefaultWebSocketServerFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/WebSocketServer$WebSocketWorker$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/WebSocketServer$WebSocketWorker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/server/WebSocketServer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/util/Base64$InputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/util/Base64$OutputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/util/Base64.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/util/ByteBufferUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/org/java_websocket/util/Charsetfunctions.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/MongoDBUser.class" afterPath="$PROJECT_DIR$/out/production/classes/MongoDBUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/Server.class" afterPath="$PROJECT_DIR$/out/production/classes/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/iWSServer_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/iWSServer_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/iWSServer_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/iWSServer_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Server.java" afterPath="$PROJECT_DIR$/src/main/java/Server.java" />
     </list>
@@ -98,13 +26,23 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+            <state relative-caret-position="322">
+              <caret line="43" column="58" lean-forward="true" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1217#1229#0" expanded="true" />
-                <element signature="e#1302#1316#0" expanded="true" />
+                <element signature="e#1226#1238#0" expanded="true" />
+                <element signature="e#1311#1325#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongoDBUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MongoDBUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -324,7 +262,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4635380817000" />
+        <entry key="$PROJECT_DIR$" value="4635384999000" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3381778039" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1061797022" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="839383744" />
@@ -449,7 +387,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="54" />
     <option name="y" value="21" />
     <option name="width" value="1284" />
@@ -473,7 +411,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -486,8 +423,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,14 +628,18 @@
       <workItem from="1524501266765" duration="482000" />
       <workItem from="1545126999766" duration="75000" />
       <workItem from="1545127100459" duration="177000" />
+      <workItem from="1545139618087" duration="868000" />
+      <workItem from="1545143984004" duration="888000" />
+      <workItem from="1545144950902" duration="163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53732000" />
+    <option name="totallyTimeSpent" value="55651000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="21" width="1322" height="783" extended-state="7" />
+    <frame x="54" y="21" width="1322" height="783" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -708,7 +650,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35703704" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35703704" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -772,25 +714,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2422">
-          <caret line="173" column="17" lean-forward="false" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#6783#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="742">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -812,8 +743,8 @@
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,8 +766,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -858,8 +789,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -881,8 +812,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -904,8 +835,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -927,8 +858,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -950,8 +881,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -973,8 +904,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,8 +927,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1019,8 +950,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,8 +973,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1065,8 +996,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1088,8 +1019,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1111,8 +1042,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1141,8 +1072,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1171,8 +1102,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1281,14 +1212,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MongoDBUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+        <state relative-caret-position="322">
+          <caret line="43" column="58" lean-forward="true" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1217#1229#0" expanded="true" />
-            <element signature="e#1302#1316#0" expanded="true" />
+            <element signature="e#1226#1238#0" expanded="true" />
+            <element signature="e#1311#1325#0" expanded="true" />
           </folding>
         </state>
       </provider>

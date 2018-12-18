@@ -23,15 +23,15 @@ public class Server extends WebSocketServer {
     private String[] requests;
 
     // host and port of mongoDB
-    private static final String HOST = "localhost";
-    private static final int PORT_DB = 27017;
+    private static final String HOST = "ds149221.mlab.com";
+    private static final int PORT_DB = 49221;
 
     // Username and password connect to MongoDB
-    private static final String USERNAME = "namnguyen";
-    private static final String PASSWORD = "123456";
+    private static final String USERNAME = "admin";
+    private static final String PASSWORD = "admin123";
 
     // name database and collection name of database
-    private static final String DB_NAME = "smartLight";
+    private static final String DB_NAME = "meshsmarthome";
     private static final String COLLECTION_NAME = "user";
 
     //list users & devices Socket connect with server
@@ -61,7 +61,7 @@ public class Server extends WebSocketServer {
         s.start();
         System.out.println( "Server started on port: " + s.getPort() );
 
-        MongoClientURI uri = new MongoClientURI("mongodb://" + USERNAME +":" + PASSWORD + "@" + HOST +":" + PORT_DB + "/?authSource=admin");
+        MongoClientURI uri = new MongoClientURI("mongodb://" + USERNAME +":" + PASSWORD + "@" + HOST +":" + PORT_DB + "/" + DB_NAME);
         MongoClient mongoClient = new MongoClient(uri);
 
         DB database = mongoClient.getDB(DB_NAME);
