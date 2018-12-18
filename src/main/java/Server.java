@@ -27,8 +27,8 @@ public class Server extends WebSocketServer {
     private static final int PORT_DB = 27017;
 
     // Username and password connect to MongoDB
-    private static final String USERNAME = "thongle";
-    private static final String PASSWORD = "123321";
+    private static final String USERNAME = "namnguyen";
+    private static final String PASSWORD = "123456";
 
     // name database and collection name of database
     private static final String DB_NAME = "smartLight";
@@ -39,7 +39,7 @@ public class Server extends WebSocketServer {
     public static List<DeviceSocket> deviceSocketList = new ArrayList<DeviceSocket>();
 
     // port of server
-    private static final int PORT_SERVER = 8888;
+    private static final int PORT_SERVER = 8080;
 
     public Server(int port ) throws UnknownHostException {
         super( new InetSocketAddress( port ) );
