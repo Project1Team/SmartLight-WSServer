@@ -262,15 +262,14 @@ public class MongoDBUser {
 
         DBObject dbObject = getUserDBObjectById(idUser);
         BasicDBList basicDBList_home = (BasicDBList) dbObject.get("home");
-
         findPostionOfHomeDevice:{
             for(int i = 0; i < basicDBList_home.size(); i++){
                 Object object_home = basicDBList_home.get(i);
                 if(((DBObject) object_home).get("macAddr").equals(macAddr)) {
                     BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
                     for(int j = 0; j < basicDBList_device.size(); j++){
-                        Object object_teamperature = basicDBList_device.get(j);
-                        if(((DBObject) object_teamperature).get("type").equals("fire")){
+                        Object object_fire = basicDBList_device.get(j);
+                        if(((DBObject) object_fire).get("type").equals("fire")){
                             alert_found = true;
                             position_device = j;
                             break findPostionOfHomeDevice;
@@ -308,8 +307,8 @@ public class MongoDBUser {
                 if(((DBObject) object_home).get("macAddr").equals(macAddr)) {
                     BasicDBList basicDBList_device = (BasicDBList) ((DBObject) object_home).get("device");
                     for(int j = 0; j < basicDBList_device.size(); j++){
-                        Object object_teamperature = basicDBList_device.get(j);
-                        if(((DBObject) object_teamperature).get("type").equals("gas")){
+                        Object object_gas = basicDBList_device.get(j);
+                        if(((DBObject) object_gas).get("type").equals("gas")){
                             alert_found = true;
                             position_device = j;
                             break findPostionOfHomeDevice;
