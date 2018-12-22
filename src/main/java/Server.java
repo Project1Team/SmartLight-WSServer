@@ -163,20 +163,55 @@ public class Server extends WebSocketServer {
 
             case "temperature":
                 for(UserSocket userSocket : userSocketList){
-                    mongoDBUser.updateTemperate(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
+                    if(mongoDBUser.updateTemperate(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1])){
+                        DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
+                        userSocket.getConn().send("update/" + dbUser.toString());
+                    }
                 }
                 break;
 
             case "fire":
                 for(UserSocket userSocket : userSocketList){
-                    mongoDBUser.updateFire(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
+                    if(mongoDBUser.updateFire(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1])){
+                        DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
+                        userSocket.getConn().send("update/" + dbUser.toString());
+                    }
                 }
                 break;
 
             case "gas":
                 for(UserSocket userSocket : userSocketList){
-                    mongoDBUser.updateGas(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1]);
+                    if(mongoDBUser.updateGas(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1])){
+                        DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
+                        userSocket.getConn().send("update/" + dbUser.toString());
+                    }
                 }
+            case "resetFire":
+                DeviceSocket deviceSocket_resetFire = Utils.getSocketDeviceByMacAddr(requests[1]);
+                if(deviceSocket_resetFire != null){
+                    if(mongoDBUser.resetFire(Utils.getObjectIdBySocket(conn), requests[1])){
+                        deviceSocket_resetFire.getConn().send("resetFire");
+                    }
+                    else{
+                        conn.send("messageRes/Can't control switch");
+                    }
+                }
+                else
+                    conn.send("messageRes/Device not found");
+                break;
+
+            case "resetGas":
+                DeviceSocket deviceSocket_resetGas = Utils.getSocketDeviceByMacAddr(requests[1]);
+                if(deviceSocket_resetGas != null){
+                    if(mongoDBUser.resetGas(Utils.getObjectIdBySocket(conn), requests[1])){
+                        deviceSocket_resetGas.getConn().send("resetFire");
+                    }
+                    else{
+                        conn.send("messageRes/Can't control switch");
+                    }
+                }
+                else
+                    conn.send("messageRes/Device not found");
                 break;
 
 //            case "changeBrightness":
