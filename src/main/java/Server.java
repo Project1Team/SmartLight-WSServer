@@ -193,7 +193,7 @@ public class Server extends WebSocketServer {
                         deviceSocket_resetFire.getConn().send("resetFire");
                     }
                     else{
-                        conn.send("messageRes/Can't control switch");
+                        conn.send("messageRes/Can't reset");
                     }
                 }
                 else
@@ -207,7 +207,7 @@ public class Server extends WebSocketServer {
                         deviceSocket_resetGas.getConn().send("resetFire");
                     }
                     else{
-                        conn.send("messageRes/Can't control switch");
+                        conn.send("messageRes/Can't reset");
                     }
                 }
                 else
