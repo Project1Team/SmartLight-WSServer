@@ -171,6 +171,7 @@ public class Server extends WebSocketServer {
                     if(mongoDBUser.updateFire(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1])){
                         DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
                         userSocket.getConn().send("update/" + dbUser.toString());
+                        break;
                     }
                 }
                 break;
@@ -180,6 +181,7 @@ public class Server extends WebSocketServer {
                     if(mongoDBUser.updateGas(userSocket.getId(), Utils.getMacAddrBySocket(conn), requests[1])){
                         DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
                         userSocket.getConn().send("update/" + dbUser.toString());
+                        break;
                     }
                 }
             case "resetFire":
@@ -187,6 +189,13 @@ public class Server extends WebSocketServer {
                 if(deviceSocket_resetFire != null){
                     if(mongoDBUser.resetFire(Utils.getObjectIdBySocket(conn), requests[1])){
                         deviceSocket_resetFire.getConn().send("resetFire");
+                        for(UserSocket userSocket : userSocketList){
+                            if(userSocket.getConn().equals(conn)){
+                                DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
+                                conn.send("update/" + dbUser.toString());
+                                break;
+                            }
+                        }
                     }
                     else{
                         conn.send("messageRes/Can't reset");
@@ -201,6 +210,13 @@ public class Server extends WebSocketServer {
                 if(deviceSocket_resetGas != null){
                     if(mongoDBUser.resetGas(Utils.getObjectIdBySocket(conn), requests[1])){
                         deviceSocket_resetGas.getConn().send("resetFire");
+                        for(UserSocket userSocket : userSocketList){
+                            if(userSocket.getConn().equals(conn)){
+                                DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
+                                conn.send("update/" + dbUser.toString());
+                                break;
+                            }
+                        }
                     }
                     else{
                         conn.send("messageRes/Can't reset");
