@@ -485,7 +485,7 @@ public class MongoDBUser {
         }
         if (alert_found){
             queryUser.put("_id",idUser);
-            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", "safe");
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", "SAFE");
             command.put("$set", dataUpdate);
             collection.update(queryUser, command);
             return true;
@@ -524,7 +524,7 @@ public class MongoDBUser {
         }
         if (alert_found){
             queryUser.put("_id",idUser);
-            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", "safe");
+            dataUpdate.put("home." + position_home + ".device." + position_device + ".status", "SAFE");
             command.put("$set", dataUpdate);
             collection.update(queryUser, command);
             return true;

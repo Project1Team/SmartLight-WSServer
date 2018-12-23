@@ -8,7 +8,6 @@ import java.util.List;
 import com.mongodb.*;
 import org.bson.types.ObjectId;
 import org.java_websocket.WebSocket;
-import org.java_websocket.WebSocketImpl;
 import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
@@ -68,9 +67,6 @@ public class Server extends WebSocketServer {
         DBCollection collection = database.getCollection(COLLECTION_NAME);
 
         mongoDBUser = new MongoDBUser(collection);
-
-        //DBObject dbUser = mongoDBUser.getUserDBObject("thao", "111111");
-        //System.out.println(dbUser.toString());
     }
 
     @Override
