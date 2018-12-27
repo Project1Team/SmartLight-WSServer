@@ -209,7 +209,7 @@ public class Server extends WebSocketServer {
                 DeviceSocket deviceSocket_resetGas = Utils.getSocketDeviceByMacAddr(requests[1]);
                 if(deviceSocket_resetGas != null){
                     if(mongoDBUser.resetGas(Utils.getObjectIdBySocket(conn), requests[1])){
-                        deviceSocket_resetGas.getConn().send("resetFire");
+                        deviceSocket_resetGas.getConn().send("resetGas");
                         for(UserSocket userSocket : userSocketList){
                             if(userSocket.getConn().equals(conn)){
                                 DBObject dbUser = mongoDBUser.getUserDBObjectById(userSocket.getId());
